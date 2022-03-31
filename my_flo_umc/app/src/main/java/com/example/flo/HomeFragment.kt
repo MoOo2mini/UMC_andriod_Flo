@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.contentValuesOf
 import androidx.fragment.app.Fragment
 import com.example.flo.databinding.FragmentHomeBinding
 
@@ -19,8 +18,9 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        binding.todayMusicAlbumImg1Iv.setOnClickListener{
-            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm,AlbumFragment()).commitAllowingStateLoss()
+        binding.todayMusicAlbumImg1Iv.setOnClickListener {
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.main_frm, AlbumFragment()).commitAllowingStateLoss()
         }
 
         return binding.root
