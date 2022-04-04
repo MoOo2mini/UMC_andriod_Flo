@@ -14,17 +14,43 @@
         <entry key="..\:/Users/jungwoo/AndroidStudioProjects/FLO/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/btm_color_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/button_background_black_color.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_background_flo_color.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/button_background_gray_color.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/button_background_white_color.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/fragment_look_chart_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/fragment_look_chip_off_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/fragment_look_chip_on_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/main_btm_color_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/main_btm_home_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/main_btm_look_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/main_btm_my_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/main_btm_search_selector.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/rectangle_background.xml" value="0.1805" />
+        <entry key="app/src/main/res/drawable/shape_circle_blue.xml" value="0.176" />
+        <entry key="app/src/main/res/drawable/shape_circle_gray.xml" value="0.176" />
+        <entry key="app/src/main/res/drawable/splash.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/tab_selector.xml" value="0.176" />
+        <entry key="app/src/main/res/drawable/textview_background_radius.xml" value="0.1805" />
         <entry key="app/src/main/res/drawable/textview_background_select_color_radius.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_song.xml" value="0.20601196289062496" />
-        <entry key="app/src/main/res/layout/fragment_album.xml" value="0.27642364501953137" />
+        <entry key="app/src/main/res/layout/activity_song.xml" value="0.18496398925781252" />
+        <entry key="app/src/main/res/layout/fragment_album.xml" value="0.16778523489932887" />
+        <entry key="app/src/main/res/layout/fragment_banner.xml" value="0.12140871177015755" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2479736328125" />
-        <entry key="app/src/main/res/layout/fragment_locker.xml" value="0.13697916666666668" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.18875732421874997" />
+        <entry key="app/src/main/res/layout/fragment_locker.xml" value="0.46291809082031254" />
         <entry key="app/src/main/res/layout/fragment_look.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_musicfile.xml" value="0.20787501321195612" />
+        <entry key="app/src/main/res/layout/fragment_pannel.xml" value="0.2543822146216332" />
+        <entry key="app/src/main/res/layout/fragment_pannel02.xml" value="0.2543822146216332" />
+        <entry key="app/src/main/res/layout/fragment_pannel03.xml" value="0.2543822146216332" />
+        <entry key="app/src/main/res/layout/fragment_sace.xml" value="0.1243209360635186" />
+        <entry key="app/src/main/res/layout/fragment_save.xml" value="0.16394958496093753" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/fragment_song.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/fragment_song.xml" value="0.10344827586206896" />
+        <entry key="app/src/main/res/layout/fragment_video.xml" value="0.1243209360635186" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.28229166666666666" />
       </map>
     </option>

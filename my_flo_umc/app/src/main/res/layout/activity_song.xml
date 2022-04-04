@@ -221,18 +221,22 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/song_player_layout"
         app:layout_constraintEnd_toStartOf="@+id/song_player_layout"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/song_player_layout"
         android:src="@drawable/nugu_btn_repeat_inactive"/>
     <ImageView
         android:id="@+id/song_repeat_on_iv"
-        android:layout_width="60dp"
+        android:layout_width="56dp"
         android:layout_height="60dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/song_player_layout"
         app:layout_constraintEnd_toStartOf="@+id/song_player_layout"
         app:layout_constraintTop_toTopOf="@+id/song_player_layout"
+        app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/btn_player_repeat_on_light"
         android:visibility="gone"/>
 
@@ -240,6 +244,8 @@
         android:id="@+id/song_random_off_iv"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/song_player_layout"
         app:layout_constraintStart_toEndOf="@+id/song_player_layout"
@@ -248,8 +254,11 @@
 
     <ImageView
         android:id="@+id/song_random_on_iv"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="55dp"
+        android:layout_height="66dp"
+        android:scaleType="fitXY"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/song_player_layout"
         app:layout_constraintStart_toEndOf="@+id/song_player_layout"
