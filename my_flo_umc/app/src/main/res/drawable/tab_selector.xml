@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@drawable/shape_circle_blue"
-        android:state_selected="true"/>
-
-    <item android:drawable="@drawable/shape_circle_gray"/>
-</selector>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="ring">
+    <item
+        android:gravity="center">
+        <shape>
+            <size
+                android:width="8dp"
+                android:height="8dp" />
+            <corners android:radius="4dp" />
+            <solid android:color="@color/gray_color" />
+        </shape>
+    </item>
+</layer-list>
