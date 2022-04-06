@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
                 .replace(R.id.main_frm, AlbumFragment()).commitAllowingStateLoss()
         }
 
+
         val pannelAdaper = HomePannelBackgroundVPAdapter(this)
         binding.homePannelBackgroundVp.adapter = pannelAdaper
         TabLayoutMediator(binding.dotsIndicatorTb, binding.homePannelBackgroundVp)
@@ -35,6 +36,8 @@ class HomeFragment : Fragment() {
             tab, position ->
             information[position]
         }.attach()
+
+        binding.wdotsIndicator.setViewPager2(binding.homePannelBackgroundVp)
 
         val bannerAdapter = BannerVPAdapter(this)
         bannerAdapter.addFragment(BannerFragment(R.drawable.img_home_viewpager_exp))

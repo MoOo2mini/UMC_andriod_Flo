@@ -21,27 +21,77 @@
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/dots_indicator_tb"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:tabRippleColor="#00ff0000"
-            app:tabIndicatorColor="#3f3fff"
+            app:tabMode="scrollable"
+            app:tabIndicatorColor="@color/transparent"
+            app:tabRippleColor="@color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_pannel_background_vp"
             app:tabGravity="center">
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
         </com.google.android.material.tabs.TabLayout>
+
+        <ImageView
+            android:id="@+id/first_dot_iv"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/shape_circle_gray"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="8.3dp"
+            app:layout_constraintEnd_toStartOf="@id/second_dot_iv"
+            app:layout_constraintTop_toBottomOf="@id/home_pannel_background_vp"/>
+
+        <ImageView
+            android:id="@+id/second_dot_iv"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/shape_circle_gray"
+            android:layout_marginTop="11dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_pannel_background_vp"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/shape_circle_gray"
+            android:layout_marginTop="11dp"
+            android:layout_marginStart="8.3dp"
+            app:layout_constraintStart_toEndOf="@id/second_dot_iv"
+            app:layout_constraintTop_toBottomOf="@id/home_pannel_background_vp"/>
+
+        <!--<com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/dots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dotsColor="@color/gray_color"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="10dp"
+            app:dotsSpacing="4dp"
+            app:dotsWidthFactor="2.5"
+            app:selectedDotColor="@color/blue"
+            app:progressMode="false"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_pannel_background_vp"/>-->
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/wdots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:dotsColor="@color/blue"
+            app:dotsStrokeColor="@color/transparent"
+            app:dotsSize="12dp"
+            app:dotsSpacing="4dp"
+            app:dotsWidthFactor="0"
+            app:progressMode="false"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_pannel_background_vp"/>
 
 
         <ImageView
