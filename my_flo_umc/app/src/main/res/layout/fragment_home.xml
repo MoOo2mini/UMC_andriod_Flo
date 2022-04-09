@@ -22,7 +22,7 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/dots_indicator_tb"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="15dp"
             android:layout_marginTop="10dp"
             app:tabMode="scrollable"
             app:tabIndicatorColor="@color/transparent"
@@ -130,7 +130,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dots_indicator_tb"/>
@@ -142,7 +142,7 @@
             android:text=">"
             android:textColor="@color/grey"
             android:textSize="20sp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@id/today_music_tv"
             app:layout_constraintTop_toBottomOf="@id/dots_indicator_tb"/>
@@ -154,7 +154,7 @@
             android:text="해외"
             android:textColor="@color/grey"
             android:textSize="18sp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dots_indicator_tb"/>
@@ -166,7 +166,7 @@
             android:text="국내"
             android:textColor="@color/grey"
             android:textSize="18sp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toStartOf="@id/today_music_oversea_tv"
             app:layout_constraintTop_toBottomOf="@id/dots_indicator_tb"/>
@@ -178,7 +178,7 @@
             android:text="종합"
             android:textColor="@color/blue"
             android:textSize="18sp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toStartOf="@id/today_music_domestic_tv"
             app:layout_constraintTop_toBottomOf="@id/dots_indicator_tb"/>

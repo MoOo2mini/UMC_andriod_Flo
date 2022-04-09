@@ -35,11 +35,12 @@
         <entry key="app/src/main/res/drawable/textview_background_radius.xml" value="0.1805" />
         <entry key="app/src/main/res/drawable/textview_background_select_color_radius.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_song.xml" value="0.18496398925781252" />
+        <entry key="app/src/main/res/layout/activity_song.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.13437217705510388" />
         <entry key="app/src/main/res/layout/fragment_album.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_banner.xml" value="0.12140871177015755" />
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2964623816641754" />
         <entry key="app/src/main/res/layout/fragment_locker.xml" value="0.46291809082031254" />
         <entry key="app/src/main/res/layout/fragment_look.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_musicfile.xml" value="0.20787501321195612" />
@@ -49,7 +50,7 @@
         <entry key="app/src/main/res/layout/fragment_sace.xml" value="0.1243209360635186" />
         <entry key="app/src/main/res/layout/fragment_save.xml" value="0.16394958496093753" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/fragment_song.xml" value="0.10344827586206896" />
+        <entry key="app/src/main/res/layout/fragment_song.xml" value="0.6099088471511316" />
         <entry key="app/src/main/res/layout/fragment_video.xml" value="0.1243209360635186" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.28229166666666666" />
       </map>
