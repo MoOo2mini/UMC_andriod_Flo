@@ -1,6 +1,9 @@
 package com.example.flo
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +16,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
-
+    var currentPage = 0
     private val information = listOf<Fragment>(PannelfirFragment(), PannelsecFragment(), PannelthrFragment())
 
     override fun onCreateView(
@@ -28,14 +31,16 @@ class HomeFragment : Fragment() {
                 .replace(R.id.main_frm, AlbumFragment()).commitAllowingStateLoss()
         }
 
-
         val pannelAdaper = HomePannelBackgroundVPAdapter(this)
         binding.homePannelBackgroundVp.adapter = pannelAdaper
         TabLayoutMediator(binding.dotsIndicatorTb, binding.homePannelBackgroundVp)
-        {
-            tab, position ->
+        { tab, position ->
             information[position]
         }.attach()
+
+        val thread = Thread(PagerRunnable())
+        thread.start()
+
 
         binding.wdotsIndicator.setViewPager2(binding.homePannelBackgroundVp)
 
@@ -46,5 +51,30 @@ class HomeFragment : Fragment() {
         binding.homeBannerVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         return binding.root
+    }
+
+    val handler = Handler(Looper.getMainLooper()) {
+        setPage()
+        true
+    }
+
+    inner class PagerRunnable : Runnable {
+        override fun run() {
+            while (true) {
+                try {
+                    Thread.sleep(2000)
+                    handler.sendEmptyMessage(0)
+                } catch (e: InterruptedException) {
+                    Log.d("interupt", "interupt발생")
+                }
+            }
+        }
+    }
+
+    fun setPage() {
+        if (currentPage == 3)
+            currentPage = 0
+        binding.homePannelBackgroundVp.setCurrentItem(currentPage, true)
+        currentPage += 1
     }
 }
