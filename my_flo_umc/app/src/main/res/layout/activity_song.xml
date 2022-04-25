@@ -86,18 +86,25 @@
         app:layout_constraintBottom_toBottomOf="@+id/song_singer_name_tv"
         app:layout_constraintStart_toEndOf="@+id/song_singer_name_tv"
         app:layout_constraintTop_toTopOf="@+id/song_singer_name_tv" />
-
-    <ImageView
+    <androidx.cardview.widget.CardView
         android:id="@+id/song_album_iv"
         android:layout_width="280dp"
         android:layout_height="280dp"
-        android:src="@drawable/img_album_exp2"
-        android:layout_marginTop="20dp"
-        android:scaleType="fitXY"
+        android:elevation="6dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/song_singer_more_iv"
-        />
+        >
+        <ImageView
+            android:id="@+id/song_album_iv_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_album_exp2"/>
+    </androidx.cardview.widget.CardView>
 
 
     <TextView
