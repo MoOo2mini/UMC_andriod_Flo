@@ -96,7 +96,9 @@
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/song_singer_more_iv"/>
+        app:layout_constraintTop_toBottomOf="@id/song_singer_more_iv"
+        />
+
 
     <TextView
         android:id="@+id/song_music_lyrics_01_iv"
