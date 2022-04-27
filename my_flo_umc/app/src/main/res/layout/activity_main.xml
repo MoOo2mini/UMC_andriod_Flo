@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
-        android:id="@+id/miniplayer_song_progress_sb"
+        android:id="@+id/main_progress_sb"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@null"

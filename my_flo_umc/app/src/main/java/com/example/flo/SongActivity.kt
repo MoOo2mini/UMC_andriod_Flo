@@ -6,12 +6,16 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo.databinding.ActivitySongBinding
+import com.google.gson.Gson
 
 class SongActivity : AppCompatActivity() {
+
+    // 전역변수
     lateinit var binding : ActivitySongBinding
     lateinit var song : Song
     lateinit var timer: Timer
     private var mediaPlayer : MediaPlayer? = null
+    private var gson: Gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,11 +58,6 @@ class SongActivity : AppCompatActivity() {
 
 
 
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        timer.interrupt()
     }
 
     private fun initSong() {
@@ -166,6 +165,30 @@ class SongActivity : AppCompatActivity() {
                 Log.d("Song", "쓰레드가 죽었습니다. ${e.message}")
             }
         }
+    }
 
+    // 사용자가 포커스를 잃었을 때 음악을 중지
+    override fun onPause() {
+        super.onPause()
+        setPlayerStatus(false)
+        song.second = ((binding.songProgressSb.progress * song.playTime) / 100) / 1000
+        val sharedPreferences = getSharedPreferences("song", MODE_PRIVATE) // 내부 저장소에 데이터를 저장할 수 있게 해줌.
+        // sharedPreferences는 데이터를 조작해야 할 때 에디터를 사용해야만 기능할 수 있다.
+
+        val editor = sharedPreferences.edit()
+        // editor.putString("title", song.title) ... 모두 써줘야함 -> JSON 포맷으로 바꿔서 넣어줄 것이다.
+
+        val songJson = gson.toJson(song)
+        editor.putString("songData", songJson)
+
+        editor.apply() // git commit & push와 같은 역할이다.
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        timer.interrupt()
+        mediaPlayer?.release() // 미디어 플레이어가 갖고 있던 리소스 해제
+        mediaPlayer = null // 미디어 플레이어 해제
     }
 }

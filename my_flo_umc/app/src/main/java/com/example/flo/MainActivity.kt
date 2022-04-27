@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.example.flo.databinding.ActivityMainBinding
+import com.google.gson.Gson
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var song : Song
+//    lateinit var song : Song
     lateinit var timer : Timer
+    private var song: Song = Song()
+    private var gson: Gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +25,6 @@ class MainActivity : AppCompatActivity() {
         //initSong()
         //setPlayer(song)
         initBottomNavigation()
-
-
-        val song = Song(binding.mainMiniPlayerTitleTv.text.toString(), binding.mainMiniPlayerSingerTv.text.toString(), 0, 60 , false, "music_lilac")
 
         binding.mainPlayerCl.setOnClickListener {
             val intent = Intent(this,SongActivity::class.java)
@@ -50,10 +50,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        timer.interrupt()
-    }
 
     fun setPlayerStatus(isPlaying : Boolean){
 //        song.isPlaying = isPlaying
@@ -69,30 +65,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun initSong() {
-        if (intent.hasExtra("title") && intent.hasExtra("singer")){
-            song = Song(
-                intent.getStringExtra("title")!!,
-                intent.getStringExtra("singer")!!,
-                intent.getIntExtra("second", 0),
-                intent.getIntExtra("playTime", 0),
-                intent.getBooleanExtra("isPlaying", false)
-            )
-        }
-        startTimer()
-    }
+//    private fun initSong() {
+//        if (intent.hasExtra("title") && intent.hasExtra("singer")){
+//            song = Song(
+//                intent.getStringExtra("title")!!,
+//                intent.getStringExtra("singer")!!,
+//                intent.getIntExtra("second", 0),
+//                intent.getIntExtra("playTime", 0),
+//                intent.getBooleanExtra("isPlaying", false)
+//            )
+//        }
+//        startTimer()
+//    }
+//
+//    private fun setPlayer(song: Song){
+//        binding.mainMiniPlayerTitleTv.text = intent.getStringExtra("title")!!
+//        binding.mainMiniPlayerSingerTv.text = intent.getStringExtra("singer")!!
+//        binding.miniplayerSongProgressSb.progress = (song.second * 1000 / song.playTime)
+//    }
 
-    private fun setPlayer(song: Song){
-        binding.mainMiniPlayerTitleTv.text = intent.getStringExtra("title")!!
-        binding.mainMiniPlayerSingerTv.text = intent.getStringExtra("singer")!!
-        binding.miniplayerSongProgressSb.progress = (song.second * 1000 / song.playTime)
-    }
 
-
-    private fun startTimer(){
-        timer = Timer(song.playTime, song.isPlaying)
-        timer.start()
-    }
+//    private fun startTimer(){
+//        timer = Timer(song.playTime, song.isPlaying)
+//        timer.start()
+//    }
 
     inner class Timer(private val playTime: Int, var isPlaying: Boolean = true):Thread(){
         private var second: Int = 0
@@ -112,7 +108,7 @@ class MainActivity : AppCompatActivity() {
                         mills += 50
 
                         runOnUiThread{
-                            binding.miniplayerSongProgressSb.progress = ((mills / playTime) * 100).toInt()
+                            binding.mainProgressSb.progress = ((mills / playTime) * 100).toInt()
                         }
 
                         // mills 천 단위마다 1초가 지남.
@@ -166,5 +162,33 @@ class MainActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    private fun setMiniPlayer(song: Song)
+    {
+        binding.mainMiniPlayerTitleTv.text = song.title
+        binding.mainMiniPlayerSingerTv.text = song.singer
+        binding.mainProgressSb.progress = (song.second*100000)/song.playTime
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        timer.interrupt()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val sharedPreferences = getSharedPreferences("song", MODE_PRIVATE)
+        val songJson = sharedPreferences.getString("songData", null)
+
+        song = if(songJson == null)
+        {
+            Song("라일락", "아이유(IU)", 0, 60 , false, "music_lilac")
+        } else {
+            gson.fromJson(songJson, Song::class.java)
+        }
+
+        setMiniPlayer(song)
     }
 }
