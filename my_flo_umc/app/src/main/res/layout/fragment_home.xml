@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:scrollbars="none">
 
@@ -15,9 +16,10 @@
             android:id="@+id/home_pannel_background_vp"
             android:layout_width="match_parent"
             android:layout_height="430dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/dots_indicator_tb"
@@ -62,21 +64,6 @@
             app:layout_constraintStart_toEndOf="@id/second_dot_iv"
             app:layout_constraintTop_toBottomOf="@id/home_pannel_background_vp"/>
 
-        <!--<com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-            android:id="@+id/dots_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:dotsColor="@color/gray_color"
-            app:dotsCornerRadius="8dp"
-            app:dotsSize="10dp"
-            app:dotsSpacing="4dp"
-            app:dotsWidthFactor="2.5"
-            app:selectedDotColor="@color/blue"
-            app:progressMode="false"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_pannel_background_vp"/>-->
 
         <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
             android:id="@+id/wdots_indicator"
@@ -183,148 +170,15 @@
             app:layout_constraintEnd_toStartOf="@id/today_music_domestic_tv"
             app:layout_constraintTop_toBottomOf="@id/dots_indicator_tb"/>
 
-        <HorizontalScrollView
-            android:id="@+id/today_music_scroll_view"
-            android:layout_marginTop="7dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_today_music_album_rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/today_music_tv"
-            app:layout_constraintStart_toStartOf="parent"
-            android:scrollbars="none">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardview_album_member1"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:elevation="6dp"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="30dp">
-
-                    <ImageView
-                        android:id="@+id/today_music_album_img1_iv"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_album_exp2"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardview_album_member2"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:elevation="6dp"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="30dp"
-                    android:layout_toRightOf="@id/cardview_album_member1">
-                    <ImageView
-                        android:id="@+id/today_music_album_img2_iv"
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_album_exp2" />
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardview_album_member3"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:elevation="6dp"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="30dp"
-                        android:layout_toRightOf="@id/cardview_album_member2">
-                    <ImageView
-                        android:id="@+id/today_music_album_img3_iv"
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/img_album_exp2"/>
-                </androidx.cardview.widget.CardView>
-                <TextView
-                    android:id="@+id/today_music_album_title1_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/cardview_album_member1"
-                    android:layout_alignLeft="@id/cardview_album_member1"
-                    android:layout_marginTop="180dp"
-                    android:text="LILAC"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
-                <TextView
-                    android:id="@+id/today_music_album_title2_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/cardview_album_member2"
-                    android:layout_alignLeft="@id/cardview_album_member2"
-                    android:layout_marginTop="180dp"
-                    android:text="LILAC"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:id="@+id/today_music_album_title3_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/cardview_album_member3"
-                    android:layout_alignLeft="@id/cardview_album_member3"
-                    android:layout_marginTop="180dp"
-                    android:text="LILAC"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:id="@+id/today_music_album_singer1_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="아이유 (IU)"
-                    android:textColor="@color/grey"
-                    android:textSize="18sp"
-                    android:layout_alignTop="@id/cardview_album_member1"
-                    android:layout_alignLeft="@id/cardview_album_member1"
-                    android:layout_marginTop="215dp"/>
-
-                <TextView
-                    android:id="@+id/today_music_album_singer2_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="아이유 (IU)"
-                    android:textColor="@color/grey"
-                    android:textSize="18sp"
-                    android:layout_alignTop="@id/cardview_album_member2"
-                    android:layout_alignLeft="@id/cardview_album_member2"
-                    android:layout_marginTop="215dp"/>
-
-                <TextView
-                    android:id="@+id/today_music_album_singer3_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="아이유 (IU)"
-                    android:textColor="@color/grey"
-                    android:textSize="18sp"
-                    android:layout_alignTop="@id/cardview_album_member3"
-                    android:layout_alignLeft="@id/cardview_album_member3"
-                    android:layout_marginTop="215dp"/>
-
-            </RelativeLayout>
-        </HorizontalScrollView>
-
-<!--        <ImageView-->
-<!--            android:id="@+id/domestic_pop_rnb_iv"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="100dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:src="@drawable/img_home_viewpager_exp"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/today_music_scroll_view" />-->
+            android:layout_height="210dp"
+            android:layout_marginTop="10dp"
+            tools:listitem="@layout/item_album"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/today_music_tv"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/home_banner_vp"
@@ -333,7 +187,7 @@
             android:layout_marginTop="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/today_music_scroll_view"/>
+            app:layout_constraintTop_toBottomOf="@id/home_today_music_album_rv"/>
 
         <TextView
             android:id="@+id/always_potcast_tv"

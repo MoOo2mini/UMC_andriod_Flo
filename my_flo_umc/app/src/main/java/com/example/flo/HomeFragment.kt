@@ -7,7 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.flo.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayout
@@ -18,6 +20,7 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     var currentPage = 0
     private val information = listOf<Fragment>(PannelfirFragment(), PannelsecFragment(), PannelthrFragment())
+    private var albumDatas = ArrayList<Album>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,10 +29,24 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        binding.todayMusicAlbumImg1Iv.setOnClickListener {
-            (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.main_frm, AlbumFragment()).commitAllowingStateLoss()
+//        binding.todayMusicAlbumImg1Iv.setOnClickListener {
+//            (context as MainActivity).supportFragmentManager.beginTransaction()
+//                .replace(R.id.main_frm, AlbumFragment()).commitAllowingStateLoss()
+//        }
+
+        // 데이터 리스트 생성 더미 데이터
+        albumDatas.apply{
+            add(Album("BUTTER", "BTS (방탄소년단)", R.drawable.img_album_exp))
+            add(Album("LILAC", "아이유 (IU)", R.drawable.img_album_exp2))
+            add(Album("Next Level", "에스파", R.drawable.img_album_exp3))
+            add(Album("Boy in LUV", "BTS (방탄소년단)", R.drawable.img_album_exp4))
+            add(Album("BBoom BBoom", "모모랜드 (MOMOLAND)", R.drawable.img_album_exp5))
+            add(Album("Weekend", "태연", R.drawable.img_album_exp6))
         }
+
+        val albumRVAdapter = AlbumRVAdapter(albumDatas)
+        binding.homeTodayMusicAlbumRv.adapter = albumRVAdapter
+        binding.homeTodayMusicAlbumRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         val pannelAdaper = HomePannelBackgroundVPAdapter(this)
         binding.homePannelBackgroundVp.adapter = pannelAdaper
