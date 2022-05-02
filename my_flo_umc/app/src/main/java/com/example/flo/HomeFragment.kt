@@ -30,11 +30,6 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-//        binding.todayMusicAlbumImg1Iv.setOnClickListener {
-//            (context as MainActivity).supportFragmentManager.beginTransaction()
-//                .replace(R.id.main_frm, AlbumFragment()).commitAllowingStateLoss()
-//        }
-
         // 데이터 리스트 생성 더미 데이터
         albumDatas.apply{
             add(Album("BUTTER", "BTS (방탄소년단)", R.drawable.img_album_exp))
