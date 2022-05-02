@@ -14,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.flo.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.gson.Gson
 
 class HomeFragment : Fragment() {
 
@@ -48,6 +49,12 @@ class HomeFragment : Fragment() {
         binding.homeTodayMusicAlbumRv.adapter = albumRVAdapter
         binding.homeTodayMusicAlbumRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
+        albumRVAdapter.setMyItemClickListener(object : AlbumRVAdapter.MyItemClickListener{
+            override fun onItemClick(album: Album){
+                changeAlbumFragment(album)
+            }
+        })
+
         val pannelAdaper = HomePannelBackgroundVPAdapter(this)
         binding.homePannelBackgroundVp.adapter = pannelAdaper
         TabLayoutMediator(binding.dotsIndicatorTb, binding.homePannelBackgroundVp)
@@ -68,6 +75,17 @@ class HomeFragment : Fragment() {
         binding.homeBannerVp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         return binding.root
+    }
+
+    private fun changeAlbumFragment(album: Album) {
+        (context as MainActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.main_frm, AlbumFragment().apply {
+                arguments = Bundle().apply {
+                    val gson = Gson()
+                    val albumJson = gson.toJson(album)
+                    putString("album", albumJson)
+                }
+            }).commitAllowingStateLoss()
     }
 
     val handler = Handler(Looper.getMainLooper()) {
