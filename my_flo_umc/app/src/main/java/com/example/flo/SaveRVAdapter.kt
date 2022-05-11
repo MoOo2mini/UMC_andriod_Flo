@@ -1,11 +1,13 @@
 package com.example.flo
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.flo.databinding.ItemSaveBinding
 
-class SaveRVAdapter(private val saveList: ArrayList<Save>) : RecyclerView.Adapter<SaveRVAdapter.ViewHolder>() {
+class SaveRVAdapter(private val saveList: ArrayList<Save>) :
+    RecyclerView.Adapter<SaveRVAdapter.ViewHolder>() {
 
     interface MyItemClickListener{
         fun onItemClick(save : Save)

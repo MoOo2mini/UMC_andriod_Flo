@@ -20,7 +20,6 @@ class SaveFragment : Fragment(){
     ): View? {
         binding = FragmentSaveBinding.inflate(inflater, container, false)
 
-
         albumDatas.apply{
             add(Save("BUTTER", "BTS (방탄소년단)", R.drawable.img_album_exp))
             add(Save("LILAC", "아이유 (IU)", R.drawable.img_album_exp2))
