@@ -56,6 +56,10 @@ class SongActivity : AppCompatActivity() {
             setRandomStatus(false)
         }
 
+        binding.songLikeIv.setOnClickListener {
+            setLike(songs[nowPos].isLike!!)
+        }
+
         if (intent.hasExtra("title") && intent.hasExtra("singer")){
             binding.songMusicTitleTv.text = intent.getStringExtra("title")
             binding.songSingerNameTv.text = intent.getStringExtra("singer")
@@ -63,6 +67,18 @@ class SongActivity : AppCompatActivity() {
 
 
 
+    }
+
+    private fun setLike(isLike: Boolean)
+    {
+        songs[nowPos].isLike = !isLike
+        songDB.songDao().updateIsLikeById(!isLike, songs[nowPos].id)
+
+        if (!isLike){
+            binding.songLikeIv.setImageResource(R.drawable.ic_my_like_on)
+        } else{
+            binding.songLikeIv.setImageResource(R.drawable.ic_my_like_off)
+        }
     }
 
     private fun initSong() {
@@ -95,6 +111,12 @@ class SongActivity : AppCompatActivity() {
 
         val music = resources.getIdentifier(song.music, "raw", this.packageName)
         mediaPlayer = MediaPlayer.create(this, music)
+
+        if (song.isLike!!){
+            binding.songLikeIv.setImageResource(R.drawable.ic_my_like_on)
+        } else{
+            binding.songLikeIv.setImageResource(R.drawable.ic_my_like_off)
+        }
 
         setPlayerStatus(song.isPlaying)
     }
@@ -220,22 +242,6 @@ class SongActivity : AppCompatActivity() {
         binding.songPauseIv.setOnClickListener{
             setPlayerStatus(false)
         }
-//
-//        binding.songRepeatOffIv.setOnClickListener{
-//            setRepeatStatus(true)
-//        }
-//
-//        binding.songRepeatOnIv.setOnClickListener{
-//            setRepeatStatus(false)
-//        }
-//
-//        binding.songRandomOffIv.setOnClickListener{
-//            setRandomStatus(true)
-//        }
-//
-//        binding.songRandomOnIv.setOnClickListener{
-//            setRandomStatus(false)
-//        }
 
         binding.songNextIv.setOnClickListener {
             moveSong( +1)
