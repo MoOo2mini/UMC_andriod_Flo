@@ -40,12 +40,13 @@
         app:tabRippleColor="#00ff0000"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        app:tabTextColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/locker_tv">
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="저장한 곡"/>
+            android:text="저장한 곡" />
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
