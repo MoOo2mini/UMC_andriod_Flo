@@ -257,7 +257,7 @@ class SongActivity : AppCompatActivity() {
             Toast.makeText(this, "first song", Toast.LENGTH_SHORT).show()
             return
         }
-        if (nowPos + direct > songs.size){
+        if (nowPos + direct >= songs.size){
             Toast.makeText(this, "last song", Toast.LENGTH_SHORT).show()
             return
         }
