@@ -20,6 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.flo.SongActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".SignUpActivity"/>
     </application>
 
 </manifest>
