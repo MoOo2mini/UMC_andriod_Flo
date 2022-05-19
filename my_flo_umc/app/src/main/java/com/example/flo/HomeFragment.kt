@@ -23,6 +23,7 @@ class HomeFragment : Fragment() {
     private val information = listOf<Fragment>(PannelfirFragment(), PannelsecFragment(), PannelthrFragment())
     private var albumDatas = ArrayList<Album>()
 
+    private lateinit var songDB : SongDatabase
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,14 +32,8 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         // 데이터 리스트 생성 더미 데이터
-        albumDatas.apply{
-            add(Album("BUTTER", "BTS (방탄소년단)", R.drawable.img_album_exp))
-            add(Album("LILAC", "아이유 (IU)", R.drawable.img_album_exp2))
-            add(Album("Next Level", "에스파", R.drawable.img_album_exp3))
-            add(Album("Boy in LUV", "BTS (방탄소년단)", R.drawable.img_album_exp4))
-            add(Album("BBoom BBoom", "모모랜드 (MOMOLAND)", R.drawable.img_album_exp5))
-            add(Album("Weekend", "태연", R.drawable.img_album_exp6))
-        }
+        songDB = SongDatabase.getInstance(requireContext())!!
+        albumDatas.addAll((songDB.albumDao().getAlbums()))
 
         val albumRVAdapter = AlbumRVAdapter(albumDatas)
         binding.homeTodayMusicAlbumRv.adapter = albumRVAdapter
