@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
             binding.mainMiniPlayerTitleTv.text = intent.getStringExtra("title")
             binding.mainMiniPlayerSingerTv.text = intent.getStringExtra("singer")
         }
+
+        Log.d("MAIN/JWT_TO_SERVER", getJwt().toString())
     }
 
 
@@ -175,6 +177,13 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         timer.interrupt()
+    }
+
+
+    private fun getJwt() : String? {
+        val spf = this.getSharedPreferences("auth2", AppCompatActivity.MODE_PRIVATE)
+
+        return spf!!.getString("jwt", "")
     }
 
     override fun onStart() {
