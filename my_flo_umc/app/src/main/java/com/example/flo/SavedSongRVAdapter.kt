@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.flo.databinding.ItemSongBinding
+import com.example.flo.databinding.ItemSaveSongBinding
 
 class SavedSongRVAdapter() :
     RecyclerView.Adapter<SavedSongRVAdapter.ViewHolder>() {
@@ -19,7 +19,7 @@ class SavedSongRVAdapter() :
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): SavedSongRVAdapter.ViewHolder {
-        val binding: ItemSongBinding = ItemSongBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
+        val binding: ItemSaveSongBinding = ItemSaveSongBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         return ViewHolder(binding)
     }
 
@@ -47,7 +47,7 @@ class SavedSongRVAdapter() :
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(val binding: ItemSongBinding) : RecyclerView.ViewHolder(binding.root){
+    inner class ViewHolder(val binding: ItemSaveSongBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(song : Song)
         {
             binding.itemAlbumTitleTv.text = song.title
