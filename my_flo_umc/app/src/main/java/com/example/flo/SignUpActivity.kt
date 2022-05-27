@@ -82,7 +82,7 @@ class SignUpActivity : AppCompatActivity(), SignUpView {
     override fun onSignUpFailure(resp : AuthResponse) {
         //failure
         when (resp.code){
-            else->{
+            else -> {
                 binding.signUpEmailErrorTv.text = resp.message
                 binding.signUpEmailErrorTv.visibility = View.VISIBLE
             }

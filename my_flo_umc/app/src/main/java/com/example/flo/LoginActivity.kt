@@ -3,6 +3,7 @@ package com.example.flo
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.flo.databinding.ActivityLoginBinding
@@ -83,7 +84,13 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-    override fun onLoginFailure() {
-        //failure
+    override fun onLoginFailure(message : String, code : Int) {
+        when (code){
+            else -> {
+                binding.loginErrorTv.text = message
+                binding.loginErrorTv.visibility = View.VISIBLE
+            }
+        }
+        Log.d("login : failure", code.toString())
     }
 }

@@ -129,6 +129,18 @@
         android:layout_marginEnd="20dp"/>
 
     <TextView
+        android:id="@+id/login_error_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:text="Error"
+        android:visibility="invisible"
+        android:textColor="@color/form_error"
+        app:layout_constraintStart_toStartOf="@id/login_password_et"
+        app:layout_constraintTop_toBottomOf="@id/login_password_et"/>
+
+    <TextView
         android:id="@+id/login_sign_in_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
