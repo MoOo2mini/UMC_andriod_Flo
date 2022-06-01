@@ -63,8 +63,6 @@ class MainActivity : AppCompatActivity() {
 
 
     fun setPlayerStatus(isPlaying : Boolean){
-//        song.isPlaying = isPlaying
-//        timer.isPlaying = isPlaying
 
         if(isPlaying){
             binding.mainMiniplayerBtn.visibility = View.GONE
@@ -175,11 +173,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setMiniPlayer(song: Song)
+    private fun setMiniPlayer(song: Song, songSecond : Int)
     {
         binding.mainMiniPlayerTitleTv.text = song.title
         binding.mainMiniPlayerSingerTv.text = song.singer
-        binding.mainProgressSb.progress = (song.second*100000)/song.playTime
+        binding.mainProgressSb.progress = (songSecond * 100000)/song.playTime
+        Log.d("song second", song.second.toString())
+        Log.d("song playtime", song.playTime.toString())
 
     }
 
@@ -209,6 +209,7 @@ class MainActivity : AppCompatActivity() {
 
         val spf = getSharedPreferences("song", MODE_PRIVATE)
         val songId = spf.getInt("songId", 0)
+        val songSecond = spf.getInt("songSecond", 0)
 
         val songDB = SongDatabase.getInstance(this)!!
 
@@ -219,7 +220,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         Log.d("song ID", song.id.toString())
-        setMiniPlayer(song)
+        setMiniPlayer(song, songSecond)
     }
 
     private fun inputDummySongs(){

@@ -212,12 +212,14 @@ class SongActivity : AppCompatActivity() {
 
         setPlayerStatus(false)
         songs[nowPos].second = ((binding.songProgressSb.progress * songs[nowPos].playTime) / 100) / 1000
+//        Log.d("song activity second", songs[nowPos].second.toString())
         songs[nowPos].isPlaying = false
 
         val sharedPreferences = getSharedPreferences("song", MODE_PRIVATE) // 내부 저장소에 데이터를 저장할 수 있게 해줌.
         val editor = sharedPreferences.edit()
 
         editor.putInt("songId", songs[nowPos].id)
+        editor.putInt("songSecond", songs[nowPos].second)
 
         editor.apply() // git commit & push와 같은 역할이다.
     }
