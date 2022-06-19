@@ -1,10 +1,15 @@
 package com.example.flo.data.remote
 
 import android.util.Log
+import android.view.View
 import com.example.flo.ui.login.LoginView
 import com.example.flo.ui.signup.SignUpView
 import com.example.flo.data.entities.User
+import com.example.flo.databinding.ActivityMainBinding.inflate
+import com.example.flo.databinding.FragmentLockerBinding
 import com.example.flo.getRetrofit
+import com.example.flo.ui.main.locker.LockerFragment
+import com.example.flo.ui.main.locker.LockerVPAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,6 +17,8 @@ import retrofit2.Response
 class AuthService {
     private lateinit var signUpView: SignUpView
     private lateinit var loginView: LoginView
+    // lateinit var binding : FragmentLockerBinding
+
 
     fun setSignUpView(signUpView: SignUpView){
         this.signUpView = signUpView
@@ -52,7 +59,9 @@ class AuthService {
                 Log.d("LOGIN/SUCCESS", response.toString())
                 val resp: AuthResponse = response.body()!!
                 when(val code = resp.code){
-                    1000->loginView.onLoginSuccess(code, resp.result!!)
+                    1000-> {
+                        loginView.onLoginSuccess(code, resp.result!!)
+                    }
                     else->loginView.onLoginFailure(resp.message, resp.code)
                 }
             }

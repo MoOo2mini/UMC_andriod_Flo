@@ -20,7 +20,7 @@ import com.google.gson.Gson
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-//    lateinit var song : Song
+    //    lateinit var song : Song
     lateinit var timer : Timer
     private var song: Song = Song()
     private var gson: Gson = Gson()

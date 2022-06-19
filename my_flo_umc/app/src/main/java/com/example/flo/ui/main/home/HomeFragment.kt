@@ -20,8 +20,7 @@ import com.example.flo.ui.song.SongDatabase
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 
-class
-HomeFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
     var currentPage = 0

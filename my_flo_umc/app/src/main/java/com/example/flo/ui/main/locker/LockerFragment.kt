@@ -2,6 +2,7 @@ package com.example.flo.ui.main.locker
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.flo.ui.login.LoginActivity
 import com.example.flo.databinding.FragmentLockerBinding
+import com.example.flo.ui.main.MainActivity
+import com.example.flo.ui.song.SongDatabase
 import com.google.android.material.tabs.TabLayoutMediator
 
 class LockerFragment : Fragment() {
@@ -43,30 +46,37 @@ class LockerFragment : Fragment() {
         initViews()
     }
 
-    private fun getJwt() : Int{
-        val spf = activity?.getSharedPreferences("auth", AppCompatActivity.MODE_PRIVATE)
-        return spf!!.getInt("jwt", 0)
+    private fun getJwt() : String? {
+        val spf = activity?.getSharedPreferences("auth2", AppCompatActivity.MODE_PRIVATE)
+        Log.d("LOCKER/", spf!!.getString("jwt", "").toString())
+        return spf!!.getString("jwt", "")
     }
 
-    private fun initViews(){
-        val jwt : Int = getJwt()
-        if (jwt == 0) {
+    private fun initViews() {
+        val jwt: String? = getJwt()
+        val userDB = SongDatabase.getInstance(requireContext())
+        val name = userDB?.userDao()?.getUserName(getJwt())
+        Log.d("Locker.name", name.toString())
+        if (jwt == "") {
             binding.lockerLoginTv.text = "로그인"
             binding.lockerLoginTv.setOnClickListener {
                 startActivity(Intent(activity, LoginActivity::class.java))
             }
-        }
-        else {
+        } else {
             binding.lockerLoginTv.text = "로그아웃"
+            binding.userId.visibility = View.VISIBLE
+            binding.userAlbum.visibility = View.VISIBLE
+            //binding.userId.text = name
             binding.lockerLoginTv.setOnClickListener {
                 logout()
-                startActivity(Intent(activity, LoginActivity::class.java))
+                startActivity(Intent(activity, MainActivity::class.java))
             }
+
         }
     }
 
     private fun logout() {
-        val spf = activity?.getSharedPreferences("auth", AppCompatActivity.MODE_PRIVATE)
+        val spf = activity?.getSharedPreferences("auth2", AppCompatActivity.MODE_PRIVATE)
         val editor = spf!!.edit()
         editor.remove("jwt")
         editor.apply()

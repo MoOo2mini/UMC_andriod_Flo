@@ -4,6 +4,12 @@ buildscript {
         google()
         mavenCentral()
     }
+    ext {
+        retrofit_version = "2.9.0"
+        roomdb_version = "2.4.1"
+        glide_version = "4.11.0"
+        okHttp_version = "4.9.0"
+    }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0"

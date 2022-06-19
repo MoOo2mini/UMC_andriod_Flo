@@ -1,6 +1,8 @@
 package com.example.flo.ui.login
 
+import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,6 +13,7 @@ import com.example.flo.data.entities.User
 import com.example.flo.data.remote.AuthService
 import com.example.flo.data.remote.Result
 import com.example.flo.databinding.ActivityLoginBinding
+import com.example.flo.databinding.FragmentLockerBinding
 import com.example.flo.ui.signup.SignUpActivity
 
 class LoginActivity : AppCompatActivity(), LoginView {
@@ -39,7 +42,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
             Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
             return
         }
-        val email : String = binding.loginIdEt.text.toString() + "@" + binding.loginDirectInputEt.text.toString()
+        var email : String = binding.loginIdEt.text.toString() + "@" + binding.loginDirectInputEt.text.toString()
         val password : String = binding.loginPasswordEt.text.toString()
 
 //        val songDB = SongDatabase.getInstance(this)!!
